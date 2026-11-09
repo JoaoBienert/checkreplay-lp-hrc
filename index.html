@@ -496,7 +496,7 @@ footer .dim{color:var(--t3)}
     <div class="act">
       <a class="login" href="https://app.checkreplay.com">Entrar</a>
       <a class="btn btn-light" href="https://app.checkreplay.com">Criar conta grátis</a>
-      <div class="lang" id="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma"><img src="assets/img/flags/pt.svg" alt="" width="20" height="20"><span>PT</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lang-menu" role="menu"><li><a href="?lang=en" data-lang="en" hreflang="en"><img src="assets/img/flags/en.svg" alt="" width="20" height="20">EN</a></li><li><a href="?lang=ru" data-lang="ru" hreflang="ru"><img src="assets/img/flags/ru.svg" alt="" width="20" height="20">RU</a></li><li><a href="?lang=pt" data-lang="pt" hreflang="pt"><img src="assets/img/flags/pt.svg" alt="" width="20" height="20">PT</a></li><li><a href="?lang=es" data-lang="es" hreflang="es"><img src="assets/img/flags/es.svg" alt="" width="20" height="20">ES</a></li><li><a href="?lang=fr" data-lang="fr" hreflang="fr"><img src="assets/img/flags/fr.svg" alt="" width="20" height="20">FR</a></li><li><a href="?lang=de" data-lang="de" hreflang="de"><img src="assets/img/flags/de.svg" alt="" width="20" height="20">DE</a></li><li><a href="?lang=ja" data-lang="ja" hreflang="ja"><img src="assets/img/flags/ja.svg" alt="" width="20" height="20">JA</a></li><li><a href="?lang=zh" data-lang="zh" hreflang="zh"><img src="assets/img/flags/zh.svg" alt="" width="20" height="20">ZH</a></li></ul></div>
+      <div class="lang" id="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma"><img src="assets/img/flags/pt.svg" alt="" width="20" height="20"><span>PT</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lang-menu" role="menu"><li><a href="en/" data-lang="en" hreflang="en"><img src="assets/img/flags/en.svg" alt="" width="20" height="20">EN</a></li><li><a href="en/" data-lang="ru" hreflang="en"><img src="assets/img/flags/ru.svg" alt="" width="20" height="20">RU</a></li><li><a href="./" data-lang="pt" hreflang="pt-BR"><img src="assets/img/flags/pt.svg" alt="" width="20" height="20">PT</a></li><li><a href="en/" data-lang="es" hreflang="en"><img src="assets/img/flags/es.svg" alt="" width="20" height="20">ES</a></li><li><a href="en/" data-lang="fr" hreflang="en"><img src="assets/img/flags/fr.svg" alt="" width="20" height="20">FR</a></li><li><a href="en/" data-lang="de" hreflang="en"><img src="assets/img/flags/de.svg" alt="" width="20" height="20">DE</a></li><li><a href="en/" data-lang="ja" hreflang="en"><img src="assets/img/flags/ja.svg" alt="" width="20" height="20">JA</a></li><li><a href="en/" data-lang="zh" hreflang="en"><img src="assets/img/flags/zh.svg" alt="" width="20" height="20">ZH</a></li></ul></div>
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mmenu"><i></i><i></i></button>
     </div>
   </div>
@@ -760,11 +760,9 @@ footer .dim{color:var(--t3)}
 </footer>
 
 <script>
-// idioma: ?lang=xx (padrão pt). Por enquanto o texto da página é PT; a animação do HRC usa PT ou EN.
-(()=>{const ok=['en','ru','pt','es','fr','de','ja','zh'];let l=(new URLSearchParams(location.search).get('lang')||'pt').toLowerCase();if(!ok.includes(l))l='pt';
-document.documentElement.lang=l==='pt'?'pt-BR':l;const w=document.getElementById('lang');if(!w)return;
-const b=w.querySelector('.lang-btn');b.querySelector('img').src=`assets/img/flags/${l}.svg`;b.querySelector('span').textContent=l.toUpperCase();
-w.querySelectorAll('.lang-menu a').forEach(a=>{if(a.dataset.lang===l)a.parentElement.classList.add('cur')});
+// idioma: página PT na raiz, EN em /en/ (demais idiomas usam a versão EN até serem traduzidos)
+(()=>{const l=document.documentElement.lang.toLowerCase().startsWith('pt')?'pt':'en';const w=document.getElementById('lang');if(!w)return;
+const b=w.querySelector('.lang-btn');w.querySelectorAll('.lang-menu a').forEach(a=>{if(a.dataset.lang===l)a.parentElement.classList.add('cur')});
 b.addEventListener('click',e=>{e.stopPropagation();const o=w.classList.toggle('open');b.setAttribute('aria-expanded',o)});
 document.addEventListener('click',()=>{w.classList.remove('open');b.setAttribute('aria-expanded','false')});})();
 // nav: stronger background once scrolled
@@ -849,8 +847,8 @@ new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!user&&!rm)play
 btn.addEventListener('click',()=>{user=true;on?stop():play()});})();
 
 // menu mobile
-(()=>{const n=document.querySelector('nav'),b=document.getElementById('burger');if(!b)return;
-const set=o=>{n.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')};
+(()=>{const EN=!document.documentElement.lang.toLowerCase().startsWith('pt');const n=document.querySelector('nav'),b=document.getElementById('burger');if(!b)return;
+const set=o=>{n.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?(EN?'Close menu':'Fechar menu'):(EN?'Open menu':'Abrir menu'))};
 b.addEventListener('click',e=>{e.stopPropagation();set(!n.classList.contains('menu-open'))});
 document.querySelectorAll('#mmenu a').forEach(a=>a.addEventListener('click',()=>set(false)));})();
 </script>

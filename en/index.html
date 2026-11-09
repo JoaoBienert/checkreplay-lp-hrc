@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Replay · HRC Storage</title>
+<meta name="description" content="Review your hands and study every spot with your team, with the HRC result in the same link.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/img/people/cr-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/img/video/C1-hero-poster.webp">
+<style>
+:root{
+  --bg:#0A0A0A; --bg2:#141414; --card:#1C1C1E; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --white:#fff; --t1:#EEEEEE; --t2:#C5C5C5; --t3:#8A8A8A;
+  --red:#CC101D; --red-btn:#B10303; --red-hi:#FF2323; --red-soft:#FF5757; --green:#17BD4E;
+  --r-sm:8px; --r-md:14px; --r-lg:20px;
+  --max:1216px; --gut:112px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+section,footer{overflow-x:clip}
+body{background:var(--bg);color:var(--t1);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip;padding-top:76px}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.grad{background:linear-gradient(180deg,#fff 0%,#EDCCCE 75%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad-red{background:linear-gradient(90deg,#B10303 0%,#FF5757 60%,#FF8C80 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(204,16,29,.6);background:rgba(204,16,29,.12);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red-hi)}
+.pill.pulse{padding-left:6px}
+.pill.pulse::before{display:none}
+.pdot{position:relative;width:20px;height:20px;flex:none}
+.pdot svg{position:absolute;left:50%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);overflow:visible}
+.pdot{color:#FF2A2A}
+.pdot circle{fill:none;stroke:currentColor;stroke-width:1.2;transform-origin:20px 20px;animation:ring 2.4s cubic-bezier(.2,.6,.3,1) infinite}
+.pdot .r2{animation-delay:.8s}.pdot .r3{animation-delay:1.6s}
+.pdot .core{fill:currentColor;stroke:none;animation:core 2.4s ease-in-out infinite;filter:drop-shadow(0 0 4px currentColor)}
+.pill.pulse.sm{padding:5px 14px 5px 9px;gap:7px}
+.pdot.sm{width:12px;height:12px}
+.pdot.sm svg{width:28px;height:28px}
+.hl .lab .pdot.sm{width:10px;height:10px}
+.hl .lab .pdot.sm svg{width:24px;height:24px}
+.hl.share .pdot{color:#2BD66A}
+@keyframes ring{0%{transform:scale(.5);opacity:.95;stroke-width:1.6}100%{transform:scale(3.1);opacity:0;stroke-width:.4}}
+@keyframes core{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 24px;border-radius:10px;font-weight:600;font-size:15px;transition:transform .2s, box-shadow .2s, background .2s}
+.btn-red{background:var(--red-btn);color:#fff;box-shadow:0 0 0 1px rgba(255,80,80,.25) inset}
+.btn-red:hover{background:#D70000;box-shadow:0 8px 30px rgba(204,16,29,.45);transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line2);color:#fff}
+.btn-ghost:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.btn-light{background:#E6E6E6;color:#111}
+.btn-dark{background:#0A0A0A;color:#fff}
+section{position:relative}
+.sec{padding:104px 0}
+.head{text-align:center;max-width:820px;margin:0 auto 56px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.head h2{font-size:clamp(30px,4vw,44px);line-height:1.15;font-weight:500;letter-spacing:-.01em}
+.head p{color:var(--t2);font-size:17px;max-width:660px}
+.lightline{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(749px,80vw);height:2px;background:linear-gradient(90deg,transparent,#fff,transparent)}
+.lightline::after{content:"";position:absolute;inset:-6px 0;background:linear-gradient(90deg,transparent,rgba(255,60,60,.7),transparent);filter:blur(10px)}
+.glow-top{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:1100px;max-width:140vw;height:640px;background:radial-gradient(closest-side,rgba(204,16,29,.24),rgba(204,16,29,.08) 55%,transparent);pointer-events:none;z-index:0}
+section > .wrap{position:relative;z-index:1}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.55);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid transparent;transition:background .3s,border-color .3s,box-shadow .3s}
+nav.scrolled{background:rgba(10,10,10,.88);border-bottom-color:var(--line);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+nav.scrolled .act .btn-light{background:var(--red-btn);color:#fff}
+nav .act .btn-light{transition:background .3s,color .3s}
+html{scroll-padding-top:90px}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+nav .logo img{height:44px;width:auto}
+nav ul{display:flex;gap:32px;list-style:none;font-size:14px;color:var(--t2)}
+nav ul a:hover{color:#fff}
+nav .act{display:flex;align-items:center;gap:20px;font-size:14px}
+nav .act .btn{height:40px;padding:0 18px;font-size:14px}
+@media(max-width:900px){nav ul{display:none} nav .act .login{display:none}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:40px 0 64px}
+.hero .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 45%;opacity:.75;z-index:0;pointer-events:none;animation:kb 18s ease-in-out infinite alternate;transform-origin:70% 40%}
+@keyframes kb{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-2%,-1.5%,0)}}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(10,10,10,.82) 32%,rgba(10,10,10,.25) 62%,rgba(10,10,10,.05) 100%);z-index:1}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:260px;background:linear-gradient(180deg,transparent,var(--bg));z-index:1}
+.hero .wrap{position:relative;z-index:2}
+.hero-row{display:grid;grid-template-columns:500px minmax(0,1fr);gap:clamp(100px,8vw,180px);align-items:center;min-height:600px}
+.hero h1{font-size:44px;line-height:1.12;font-weight:500;letter-spacing:-.015em;margin:21px 0}
+.hero h1 .ln{display:block;white-space:nowrap}
+@media(max-width:520px){.hero h1 .ln{white-space:normal}}
+.hero .sub{font-size:18px;color:var(--t2);line-height:1.55}
+.hero .ctas{display:flex;gap:13px;margin:21px 0}
+@property --pa{syntax:"<angle>";inherits:false;initial-value:0deg}
+.proof{position:relative;display:inline-flex;align-items:center;gap:13px;padding:8px 21px 8px 8px;border-radius:999px;border:1px solid transparent;
+  background:linear-gradient(rgba(24,24,26,.92),rgba(24,24,26,.92)) padding-box,conic-gradient(from var(--pa),rgba(255,255,255,.08) 0deg,rgba(255,255,255,.08) 250deg,rgba(255,60,60,.95) 320deg,#fff 340deg,rgba(255,60,60,.95) 352deg,rgba(255,255,255,.08) 360deg) border-box;
+  box-shadow:0 0 0 rgba(204,16,29,0);animation:pspin 4.5s linear infinite;transition:box-shadow .4s,transform .4s}
+.proof::after{content:"";position:absolute;inset:-14px -20px;border-radius:999px;background:radial-gradient(closest-side,rgba(204,16,29,.22),transparent);z-index:-1;pointer-events:none;animation:pglow 4.5s ease-in-out infinite}
+.proof:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(204,16,29,.25)}
+@keyframes pspin{to{--pa:360deg}}
+@keyframes pglow{0%,100%{opacity:.55}50%{opacity:1}}
+.proof img{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,90,90,.7);animation:pava 2.4s ease-out infinite}
+@keyframes pava{0%{box-shadow:0 0 0 0 rgba(255,42,42,.55),0 0 14px rgba(255,42,42,.45)}70%{box-shadow:0 0 0 9px rgba(255,42,42,0),0 0 14px rgba(255,42,42,.45)}100%{box-shadow:0 0 0 0 rgba(255,42,42,0),0 0 14px rgba(255,42,42,.45)}}
+.proof b{display:block;font-size:14px;font-weight:600;color:#fff}
+.proof span{font-size:13px;color:var(--t3)}
+
+.stage{position:relative;height:560px;container-type:inline-size;perspective:1600px;perspective-origin:30% 50%}
+@media(min-width:1201px){.stage{margin-right:calc(-1 * max(0px,(100vw - var(--max)) / 2 - 40px))}}
+.win{position:absolute;border-radius:16px;transition:transform .9s cubic-bezier(.22,.61,.36,1),opacity .8s ease,filter .8s ease,z-index 0s linear .4s;transform-style:preserve-3d;will-change:transform,opacity}
+.win img{width:100%;display:block;border-radius:1.45% / 2.6%;box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 60px rgba(204,16,29,.18)}
+.win.hrc{left:6%;top:84px;width:94%;z-index:3;transform-origin:100% 50%;transform:rotateY(-12deg) rotateX(3deg)}
+.win.rp{left:6%;top:84px;width:94%;z-index:2;opacity:.45;filter:brightness(.65);transform-origin:100% 50%;transform:rotateY(-12deg) rotateX(3deg) translate3d(-64px,-78px,-120px)}
+.stage:hover .win.hrc,.stage.swap .win.hrc{transform:rotateY(-12deg) rotateX(3deg) translate3d(36px,40px,-180px);opacity:0;filter:brightness(.6) blur(2px);z-index:2}
+.stage:hover .win.rp,.stage.swap .win.rp{transform:rotateY(-12deg) rotateX(3deg) translate3d(0,0,0);opacity:1;filter:none;z-index:3}
+.stage:hover .hl.bf{transform:translate(0,8px)}
+.stage:hover .hl.share{transform:translate(0,8px)}
+.hl{position:absolute;z-index:5;translate:0 0 120px;background:#19191b;border-radius:14px;padding:13px;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.hl .lab{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--t3);margin-bottom:8px}
+.hl .lab i{width:7px;height:7px;border-radius:50%;display:block}
+.hl.share{left:-40px;top:350px;transform-origin:0 0;scale:.8;border:1px solid rgba(23,189,78,.6);box-shadow:0 18px 44px rgba(0,0,0,.7),0 0 26px rgba(23,189,78,.3)}
+.hl.share .lab i{background:var(--green)}
+.hl.bf{right:3%;top:calc(84px + 53.8cqw - 52px);transform-origin:100% 0;scale:.85;border:1px solid rgba(204,16,29,.6);box-shadow:0 18px 44px rgba(0,0,0,.7),0 0 26px rgba(204,16,29,.3)}
+.hl.bf .lab i{background:var(--red-hi)}
+.toast{width:290px;border-radius:8px;background:#141416;border:1px solid var(--line);overflow:hidden}
+.toast .row{display:flex;align-items:center;gap:10px;padding:13px 12px 12px 14px;font-size:14px;font-weight:500;color:#fff}
+.toast .ck{width:20px;height:20px;border-radius:50%;background:var(--green);display:grid;place-items:center;flex:none}
+.toast .x{margin-left:auto;color:var(--t3)}
+.toast .bar{height:4px;background:var(--green)}
+.hl.share{padding:14px 14px 13px;background:linear-gradient(180deg,#1d1d20,#151517)}
+.sh-flow{display:flex;flex-direction:column;align-items:flex-start}
+.sh-bar{display:flex;gap:4px;padding:5px;border-radius:9px;background:#0f0f11;border:1px solid var(--line)}
+.sh-btn{position:relative;display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:6px;font-size:12px;font-weight:500;color:var(--t3);white-space:nowrap}
+.sh-btn.on{color:#fff;background:rgba(23,189,78,.14);box-shadow:0 0 0 1px rgba(23,189,78,.7) inset}
+.sh-btn .cur{position:absolute;right:-8px;bottom:-12px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+.sh-line{width:2px;height:16px;margin:4px 0 4px 120px;background:linear-gradient(180deg,rgba(23,189,78,.9),rgba(23,189,78,.2));border-radius:2px}
+.hl.share p{font-size:13px;color:var(--t2);margin-top:10px}
+.hl.share p b{color:#fff;font-weight:600}
+
+.bfrow{display:flex;gap:13px;align-items:center}
+.bfrow img{width:128px;height:66px;object-fit:cover;object-position:40% 30%;border-radius:6px;border:1px solid var(--line)}
+.bfrow small{font-size:12px;color:var(--t2);font-weight:600;display:block}
+.bfrow b{font-size:30px;line-height:1.1;color:var(--red-hi);font-weight:700;display:block}
+.bfrow span{font-size:12px;color:var(--t2)}
+.rooms{margin-top:72px;text-align:center}
+.rooms p{font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--t3);margin-bottom:24px}
+.rooms ul{display:flex;justify-content:space-between;align-items:center;list-style:none;gap:24px;padding:0 40px}
+.rooms .slider{position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.rooms .track{display:flex;align-items:center;gap:72px;width:max-content;list-style:none;padding:8px 0;animation:slide 36s linear infinite}
+.rooms .slider:hover .track{animation-play-state:paused}
+.rooms .track li{flex:none;display:flex;align-items:center;height:64px}
+.rooms .track img{width:auto;opacity:.75;filter:grayscale(1) brightness(1.9);transition:opacity .3s,filter .3s}
+.rooms .track img:hover{opacity:1;filter:none}
+@keyframes slide{to{transform:translateX(calc(-50% - 36px))}}
+
+
+/* TESE */
+.tese{position:relative;padding:72px 0;text-align:center}
+.tese .glow-top{top:0;bottom:0;height:auto;width:1200px;max-width:none;background:radial-gradient(closest-side,rgba(204,16,29,.15),rgba(204,16,29,.05) 55%,transparent)}
+.tese .wrap{position:relative;z-index:1}
+.tese h2{font-size:clamp(28px,3.4vw,40px);line-height:1.2;font-weight:500}
+.tese p{color:var(--t2);margin-top:16px}
+
+/* SHORTCUTS */
+.shortcuts{padding:24px 0 112px}
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sc{background:linear-gradient(180deg,#1C1C1E,#141414);border:1px solid var(--line);border-radius:var(--r-lg);padding:17px;transition:border-color .3s,transform .3s,box-shadow .3s}
+.sc:hover{border-color:rgba(204,16,29,.6);transform:translateY(-4px);box-shadow:0 0 40px rgba(204,16,29,.15)}
+.sc .media{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:355/230;background:#111}
+.sc .media img,.sc .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sc .media video{opacity:0;transition:opacity .3s}
+.sc:hover .media video{opacity:1}
+.sc .tag{position:absolute;left:10px;top:10px;display:flex;align-items:center;gap:8px;padding:5px 12px 5px 6px;border-radius:999px;background:rgba(10,10,10,.85);border:1px solid var(--line2);font-size:12px;font-weight:600}
+.sc .tag img{position:static;width:20px;height:20px}
+.sc h4{font-size:12px;letter-spacing:.1em;color:var(--red-soft);margin:20px 4px 8px;font-weight:600}
+.sc p{font-size:18px;color:#fff;margin:0 4px;line-height:1.35}
+.sc a{display:inline-block;margin:16px 4px 4px;font-size:13px;color:var(--red-soft)}
+
+/* FEATURE BLOCKS */
+.feat .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.fcard{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:#141414;transition:border-color .3s,box-shadow .3s}
+.fcard{isolation:isolate;transform:translateZ(0);transition:border-color .3s,box-shadow .3s,transform .6s cubic-bezier(.22,.61,.36,1);will-change:transform}
+.fcard img{display:block;width:calc(100% + 6px);max-width:none;height:auto;margin:-3px;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .45s ease}
+.fcard:hover img{transform:scale(1.025);filter:brightness(.6) saturate(.9)}
+.fcard::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .45s;
+  background:radial-gradient(ellipse 70% 40% at 26% 100%,rgba(204,16,29,.24),rgba(204,16,29,.08) 55%,transparent 75%)}
+.fcard .cap{z-index:3}
+.fcard:hover{border-color:rgba(204,16,29,.75);box-shadow:0 0 0 1px rgba(204,16,29,.35),0 0 60px rgba(204,16,29,.25)}
+.fcard:hover::before{opacity:1}
+.fcard::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;transition:opacity .4s;background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.7) 22%,rgba(0,0,0,.25) 45%,transparent 62%)}
+.fcard:hover::after{opacity:1}
+.fcard.wide::after{background:radial-gradient(ellipse 48% 38% at 18% 0%,rgba(0,0,0,.85),rgba(0,0,0,.5) 50%,transparent 100%)}
+.fcard.notes::after{background:linear-gradient(90deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.45) 38%,transparent 55%);opacity:.8}
+.fcard .cap{position:absolute;left:28px;right:28px;bottom:26px}
+.fcard .cap h3{font-size:22px;font-weight:500;color:#fff}
+.fcard .cap p{font-size:14px;color:var(--t2);margin-top:6px;max-height:0;opacity:0;transition:all .35s}
+.fcard:hover .cap p{max-height:60px;opacity:1}
+.fcard.wide .cap{top:30px;bottom:auto;max-width:520px}
+.fcard.wide:hover .cap p{max-height:80px}
+.fcard.wide::before{background:radial-gradient(ellipse 42% 50% at 14% 10%,rgba(204,16,29,.16),transparent 72%)}
+.fcard.notes::before{background:radial-gradient(ellipse 40% 55% at 16% 40%,rgba(204,16,29,.16),transparent 72%)}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 16px 8px 12px;border-radius:999px;background:#1C1C1E;border:1px solid var(--line);font-size:14px;color:var(--t2)}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--red-hi)}
+.chip img{width:18px;height:18px}
+.lockup{display:inline-flex;align-items:center;gap:20px;padding:12px 24px;border-radius:999px;background:rgba(28,28,30,.7);border:1px solid var(--line)}
+.lockup img{height:30px;width:auto}
+.lockup span{color:var(--t3);font-weight:300;font-size:22px}
+.notes .cap.left{top:0;bottom:0;left:0;right:auto;width:44%;padding:80px 0 0 56px;display:flex;flex-direction:column;gap:20px}
+.notes .cap.left small{font-size:12px;font-weight:600;letter-spacing:.08em;color:#FF6666}
+.notes .cap.left h3{font-size:34px;line-height:1.24;font-weight:600}
+.notes .cap.left p{max-height:none;opacity:1;font-size:16px;line-height:1.55}
+.notes .cap.left ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;font-weight:500}
+.notes .cap.left li::before{content:"✓";color:#FF4D4D;font-weight:700;margin-right:10px}
+.sec-hrc .geo{position:absolute;right:6%;top:40px;width:420px;height:380px;pointer-events:none;opacity:.8;
+  background:
+   linear-gradient(#ff2424 0 0) 60px 0/220px 1px no-repeat, linear-gradient(#ff2424 0 0) 60px 150px/220px 1px no-repeat, linear-gradient(#ff2424 0 0) 60px 0/1px 150px no-repeat, linear-gradient(#ff2424 0 0) 280px 0/1px 150px no-repeat,
+   linear-gradient(#ff2424 0 0) 150px 60px/200px 1px no-repeat, linear-gradient(#ff2424 0 0) 150px 230px/200px 1px no-repeat, linear-gradient(#ff2424 0 0) 150px 60px/1px 170px no-repeat, linear-gradient(#ff2424 0 0) 350px 60px/1px 170px no-repeat;
+  -webkit-mask:radial-gradient(closest-side,#000,transparent);mask:radial-gradient(closest-side,#000,transparent);filter:drop-shadow(0 0 6px rgba(255,36,36,.5))}
+.sec-hrc .glowr{position:absolute;right:-10%;top:0;width:1100px;height:760px;background:radial-gradient(closest-side,rgba(204,16,29,.3),transparent);pointer-events:none}
+.sec-bf .gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask:radial-gradient(ellipse at center,#000 20%,transparent 75%);mask:radial-gradient(ellipse at center,#000 20%,transparent 75%);pointer-events:none}
+
+/* PROVA */
+.prova{padding:24px 0 120px}
+.band{position:relative;border-radius:28px;overflow:hidden;padding:72px 24px;text-align:center;background:linear-gradient(135deg,#CC101D 0%,#7A0610 55%,#500000 100%)}
+.band::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,120,120,.35),transparent 60%)}
+.band > *{position:relative}
+.band .blines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.band .blines .fr{fill:none;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.band .blines .g1{animation:bl 7s ease-in-out infinite}.band .blines .g2{animation:bl 7s ease-in-out -3.5s infinite}
+@keyframes bl{0%,100%{opacity:.55}50%{opacity:1}}
+.band .num{display:inline-block;min-width:4ch;text-align:right;font-variant-numeric:tabular-nums}
+.avatars{display:flex;justify-content:center;margin-bottom:24px}
+.avatars img{width:56px;height:56px;border-radius:50%;border:3px solid #8A0A12;margin-left:-14px;object-fit:cover;background:#111}
+.avatars img:first-child{margin-left:0}
+.band h2{font-size:clamp(30px,4vw,46px);font-weight:500;line-height:1.15;color:#fff}
+.band .btn{margin-top:28px}
+
+/* DEPOIMENTOS */
+.depo{padding:0 0 120px}
+.depo-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;gap:24px}
+.depo-top h2{font-size:clamp(26px,3vw,36px);font-weight:500;margin-top:14px}
+.darrows{display:flex;gap:12px;flex-shrink:0}
+.darr{width:56px;height:48px;border-radius:12px;background:var(--red-btn);display:grid;place-items:center;transition:background .2s,opacity .2s,transform .2s}
+.darr:hover{background:#E0141F;transform:translateY(-1px)}
+.darr:disabled{opacity:.35;cursor:default;transform:none}
+.darr svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dtrack{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 8px;margin:-4px -2px 0}
+.dtrack::-webkit-scrollbar{display:none}
+.dcard{flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;background:linear-gradient(180deg,#1C1C1E,#141414);border:1px solid rgba(204,16,29,.35);border-radius:var(--r-md);padding:32px;display:flex;flex-direction:column;gap:22px;transition:border-color .3s,box-shadow .3s}
+.dcard:hover{border-color:rgba(255,60,60,.6);box-shadow:0 0 34px rgba(204,16,29,.18)}
+.dcard .stars{display:flex;gap:6px}
+.dcard .stars svg{width:20px;height:20px;fill:#F5B82E}
+.dcard p{font-size:16px;color:var(--t2);line-height:1.6;flex:1}
+.dcard .who{display:flex;gap:14px;align-items:center}
+.dcard .who img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.15)}
+.dcard b{font-size:16px;color:#fff;display:block;font-weight:600}
+.dcard span{font-size:13px;color:var(--t3)}
+
+
+/* video banner (HRC) */
+.vcard{aspect-ratio:1214/540;margin-bottom:24px;background:radial-gradient(ellipse 60% 70% at 75% 50%,rgba(204,16,29,.22),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 0%,rgba(204,16,29,.10),transparent 70%),#121214}
+.vcard .vwrap{position:absolute;right:4%;top:50%;width:64%;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 60px rgba(204,16,29,.2);transform:translateY(-50%) perspective(1800px) rotateY(-7deg) rotateX(2deg);transition:transform .8s cubic-bezier(.22,.61,.36,1)}
+.vcard:hover .vwrap{transform:translateY(-50%) perspective(1800px) rotateY(-2deg) rotateX(0deg) scale(1.01)}
+.vcard video{display:block;width:100%;height:auto}
+.vcard .cap{top:auto!important;bottom:auto;top:50%!important;transform:translateY(-50%);max-width:27%!important}
+.vcard .cap h3{font-size:30px;line-height:1.2;font-weight:600}
+.vcard::after{display:none}
+.vplay{position:absolute;right:20px;bottom:20px;z-index:3;width:48px;height:48px;border-radius:50%;background:rgba(20,20,22,.8);border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;backdrop-filter:blur(8px);transition:background .2s}
+.vplay:hover{background:rgba(204,16,29,.85)}
+.vplay svg{width:20px;height:20px;fill:#fff}
+.vplay .i-play{display:none}.vplay.paused .i-play{display:block}.vplay.paused .i-pause{display:none}
+
+/* motion banner (HRC) — estilo GTO: UI real, profundidade, cursor no plano do card */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.mcard{aspect-ratio:1214/540;background:#0e0e10}
+.mcard::before,.mcard::after{display:none}
+.mstage{position:absolute;left:0;top:0;width:1214px;height:540px;transform-origin:0 0;transform:scale(var(--k,1))}
+.mscene{position:absolute;inset:0;perspective:1500px;perspective-origin:50% 45%;overflow:hidden}
+.mscene::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 45%,transparent 55%,rgba(8,8,9,.75)),radial-gradient(ellipse 40% 50% at 70% 100%,rgba(204,16,29,.16),transparent 70%)}
+.m-app{position:absolute;left:-43px;top:-40px;width:1300px;max-width:none;transform-origin:55% 45%;will-change:transform,filter}
+.mc{position:absolute;transform-style:preserve-3d;will-change:transform,opacity,filter;opacity:0}
+.mcard img{margin:0;max-width:none;aspect-ratio:auto!important;object-fit:fill!important;transition:none}
+.mcard:hover img{transform:none;filter:none}
+.mcard .m-app{width:1300px}
+.mcard .mc img{width:100%}
+.mc .hw{border-radius:12px;overflow:hidden}
+.mc .hw img{border-radius:0}
+.mc img{display:block;width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px rgba(0,0,0,.75),0 0 0 1px rgba(0,0,0,.5)}
+.m-lista{left:170px;top:110px;width:400px}
+.m-hrc{left:380px;top:40px;width:620px}
+.m-notas{left:770px;top:58px;width:330px}
+.m-notas .nc{position:absolute;left:0;top:0;opacity:0}
+.cur{position:absolute;left:0;top:0;width:24px;height:24px;opacity:0;filter:drop-shadow(0 3px 6px rgba(0,0,0,.6));will-change:transform,opacity}
+.mring{position:absolute;border:2px solid #FF2A2A;border-radius:50%;box-shadow:0 0 0 4px rgba(255,42,42,.18),0 0 22px rgba(255,42,42,.6);opacity:0}
+.r-lista{left:177px;top:35px;width:26px;height:26px}
+.r-hrc{left:349px;top:428px;width:26px;height:22px;border-radius:5px}
+.mkbd{position:absolute;left:520px;top:384px;display:flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;font-size:14px;color:#ddd;background:linear-gradient(180deg,#1f1f22,#161618);border:1px solid rgba(204,16,29,.65);box-shadow:0 20px 50px rgba(0,0,0,.65),0 0 30px rgba(204,16,29,.28);opacity:0}
+.mkbd span:last-child{margin-left:4px}
+.mkbd .kbd{display:inline-grid;place-items:center;min-width:30px;height:28px;padding:0 8px;border-radius:7px;background:#2a2a2e;border:1px solid rgba(255,255,255,.18);border-bottom-width:3px;font-size:13px;font-weight:600;color:#fff}
+
+@media(max-width:768px){
+  .mcard{aspect-ratio:420/520!important}
+  .mstage{width:420px;height:520px}
+  .mscene{perspective:1100px}
+  .mcard .m-app{left:-306px;top:40px;width:860px}
+  .m-lista{left:65px;top:130px;width:290px}
+  .r-lista{left:128px;top:25px;width:20px;height:20px}
+  .m-hrc{left:52px;top:70px;width:316px}
+  .m-hrc .hw{width:316px;height:350px;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px rgba(0,0,0,.75)}
+  .mcard .m-hrc .hw img{width:673px;margin:-162px 0 0 -353px;border:0;box-shadow:none}
+  .r-hrc{left:29px;top:305px;width:22px;height:21px}
+  .m-notas{left:85px;top:62px;width:250px}
+  .mkbd{left:50%;top:420px;transform:translateX(-50%);white-space:nowrap;font-size:13px;padding:10px 14px}
+}
+
+/* idiomas (igual ao site atual) */
+.lang{position:relative}
+.lang-btn{display:flex;align-items:center;gap:8px;height:40px;padding:0 10px;border-radius:10px;color:#fff;font-size:14px;font-weight:500;transition:background .2s}
+.lang-btn:hover,.lang.open .lang-btn{background:rgba(255,255,255,.06)}
+.lang-btn img,.lang-menu img{width:20px;height:20px;border-radius:50%;display:block}
+.lang-btn svg{width:12px;height:12px;color:var(--t3);transition:transform .2s}
+.lang.open .lang-btn svg{transform:rotate(180deg)}
+.lang-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:112px;padding:6px;list-style:none;display:block!important;background:#121214;border:1px solid var(--line2);border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.6);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .2s,transform .2s,visibility .2s}
+.lang.open .lang-menu{opacity:1;visibility:visible;transform:none}
+@media(hover:hover){.lang:hover .lang-menu{opacity:1;visibility:visible;transform:none}.lang:hover .lang-btn svg{transform:rotate(180deg)}}
+.lang-menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;font-size:14px;color:#e6e6e8}
+.lang-menu a:hover{background:rgba(255,255,255,.06)}
+.lang-menu li.cur{display:none}
+@media(max-width:520px){.lang-btn{padding:0 6px}nav .act{gap:6px}}
+
+/* menu mobile (igual ao site atual: logo · idioma · hambúrguer) */
+.burger{display:none;width:44px;height:44px;position:relative;margin-right:-8px}
+.burger i{position:absolute;left:8px;right:8px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,top .3s}
+.burger i:first-child{top:17px}.burger i:last-child{top:26px}
+nav.menu-open .burger i:first-child{top:21px;transform:rotate(45deg)}
+nav.menu-open .burger i:last-child{top:21px;transform:rotate(-45deg)}
+.mmenu{display:none}
+@media(max-width:900px){
+  nav .act .btn-light{display:none}
+  .burger{display:block}
+  .lang-btn span{display:inline!important}
+  .lang-btn svg{display:none}
+  .mmenu{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;padding:8px 24px 24px;background:#0a0a0a;min-height:0;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .4s ease,opacity .3s,visibility .3s}
+  nav.menu-open .mmenu{max-height:80vh;opacity:1;visibility:visible}
+  .mmenu > a{padding:16px 0;font-size:18px;color:#fff;border-bottom:1px solid var(--line)}
+  .mm-act{display:flex;flex-direction:column-reverse;gap:10px;margin-top:20px}
+  .mm-act .btn{width:100%;height:50px;justify-content:center;white-space:nowrap}
+  nav.menu-open{background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none}
+  nav.menu-open .mmenu{height:calc(100vh - 76px);max-height:calc(100vh - 76px)}
+}
+/* PLANOS */
+.toggle{display:inline-flex;padding:5px;border-radius:999px;background:#141414;border:1px solid var(--line);margin-top:6px}
+.toggle button{padding:10px 22px;border-radius:999px;font-size:14px;font-weight:600;color:var(--t2)}
+.toggle button.on{background:var(--red-btn);color:#fff}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto}
+.pcard{border-radius:var(--r-lg);border:1px solid var(--line2);background:linear-gradient(180deg,#232325,#141414);padding:32px;display:flex;flex-direction:column}
+.pcard.hi{background:linear-gradient(180deg,#D2202C 0%,#8E0A12 60%,#5A0006 100%);border-color:rgba(255,80,80,.6);box-shadow:0 0 60px rgba(204,16,29,.35)}
+.pcard h3{font-size:15px;font-weight:600;color:var(--red-soft)}
+.pcard.hi h3{color:#fff}
+.price{display:flex;align-items:baseline;gap:8px;margin:18px 0 12px}
+.price b{font-size:52px;font-weight:500;line-height:1}
+.price span{color:var(--t2);font-size:15px}
+.pcard .lead{font-size:15px;color:var(--t2);padding-bottom:22px;border-bottom:1px solid var(--line2);margin-bottom:22px}
+.pcard.hi .lead{color:#FFE2E2;border-color:rgba(255,255,255,.2)}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:14px;font-size:15px;flex:1;margin-bottom:28px}
+.pcard li::before{content:"✓";margin-right:12px;color:var(--red-hi);font-weight:700}
+.pcard.hi li::before{color:#fff}
+
+/* KELVIN */
+.kelvin{padding:0 0 120px}
+.kgrid{display:grid;grid-template-columns:500px 1fr;gap:72px;align-items:center}
+.kphoto{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:5/6}
+.kphoto img{width:100%;height:100%;object-fit:cover}
+.kside{position:relative}
+.kphoto{z-index:1}
+.kglow{position:absolute;left:78%;top:50%;width:1150px;height:860px;max-width:none;transform:translate(-50%,-50%);z-index:0;background:radial-gradient(closest-side,rgba(230,30,36,.36),rgba(204,16,29,.14) 48%,rgba(204,16,29,.04) 75%,transparent);pointer-events:none}
+.ktext{position:relative;z-index:1}
+.ktext h2{font-size:clamp(30px,4vw,44px);font-weight:500;line-height:1.15;margin:18px 0}
+.ktext p{color:var(--t2);font-size:17px;max-width:520px}
+.ktext .chips{justify-content:flex-start;margin-top:24px}
+
+/* CONTEUDO */
+.cgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.cgrid a{grid-column:span 2;border-radius:16px;overflow:hidden;border:1px solid var(--line);transition:transform .3s,border-color .3s}
+.cgrid a.w{grid-column:span 3}
+.cgrid a:hover{transform:translateY(-4px);border-color:rgba(204,16,29,.6)}
+.cgrid img{width:100%}
+
+/* FAQ */
+.faq{padding:120px 0}
+.fgrid{display:grid;grid-template-columns:400px 1fr;gap:72px}
+.fgrid h2{font-size:36px;font-weight:500;margin:16px 0}
+.fgrid > div > p{color:var(--t2);margin-bottom:28px}
+details{border-bottom:1px solid var(--line2);padding:22px 0}
+details:first-child{border-top:1px solid var(--line2)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:17px;font-weight:500;color:#fff}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;font-weight:300;color:var(--red-soft);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--t2);margin-top:12px;font-size:15px;max-width:620px}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;padding:140px 0;text-align:center;background:linear-gradient(180deg,#0A0A0A,#3A0005 50%,#0A0A0A)}
+.marq{position:absolute;top:50%;left:0;transform:translateY(-50%);white-space:nowrap;font-family:"Bebas Neue",sans-serif;font-size:clamp(140px,22vw,300px);line-height:1;color:rgba(255,255,255,.06);animation:marq 40s linear infinite;pointer-events:none}
+@keyframes marq{to{transform:translate(-50%,-50%)}}
+.cta h2{position:relative;font-size:clamp(32px,4.4vw,52px);font-weight:500;line-height:1.15}
+.cta .btn{position:relative;margin-top:32px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14px;color:var(--t2)}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.frow nav,.frow .links{display:flex;gap:28px;flex-wrap:wrap;position:static;background:none;border:0;backdrop-filter:none}
+footer .logo img{height:40px}
+footer .sep{height:1px;background:var(--line);margin:28px 0}
+footer small{font-size:13px;color:var(--t3)}
+footer .dim{color:var(--t3)}
+
+/* RESPONSIVE */
+@media(max-width:1200px){
+  .hero-row{grid-template-columns:1fr;gap:40px}
+  .stage{height:560px;max-width:720px;margin:0 auto;width:100%}
+}
+@media(max-width:1024px){
+  .kgrid{grid-template-columns:1fr;gap:40px} .kphoto{max-width:500px}
+  .fgrid{grid-template-columns:1fr;gap:32px}
+  .dcard{flex-basis:calc((100% - 24px)/2)}
+  .pgrid{grid-template-columns:1fr;max-width:480px}
+}
+@media(max-width:768px){
+  .sec{padding:72px 0}
+  .hero{padding:48px 0 32px;min-height:0}
+  .hero h1{font-size:36px}
+  .hero .sub{font-size:16px}
+  .hero .ctas{flex-direction:column}
+  .hero .ctas .btn{width:100%}
+  .hero::before{background:linear-gradient(180deg,rgba(10,10,10,.6),var(--bg) 90%)}
+  .hero .bgv{opacity:.45;object-position:70% 30%}
+  .stage{height:auto;perspective:none;display:flex;flex-direction:column;gap:14px}
+  .win{position:relative;left:auto!important;top:auto!important;width:100%!important;transform:none!important;opacity:1!important}
+  .win.rp{display:none}
+  .hl{position:relative;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important}
+  .toast{width:100%}
+  .rooms{margin-top:48px}
+  .rooms .track{gap:44px;animation-duration:28s}
+  .rooms .track li{height:48px}
+  .rooms .track img{transform:scale(.75)}
+  .sc-grid,.feat .grid2{grid-template-columns:1fr}
+  .dcard{flex-basis:86%;padding:24px}
+  .depo-top{flex-direction:row!important;align-items:end!important}
+  .darr{width:46px;height:42px}
+  .fcard{display:flex;flex-direction:column}
+  .fcard .cap{position:relative;left:auto;right:auto;bottom:auto;padding:16px 18px 20px}
+  .fcard img{order:0} .fcard .cap{order:1}
+  .fcard .cap h3{font-size:18px}
+  .fcard .cap p{max-height:none;opacity:1;font-size:13px}
+  .fcard.wide{display:flex;flex-direction:column}
+  .vcard{aspect-ratio:auto;display:flex;flex-direction:column}
+  .vcard .cap{position:relative!important;transform:none;top:auto!important;max-width:none!important;padding:22px 18px 4px;order:-1}
+  .vcard .cap h3{font-size:22px}
+  .vcard .vwrap{position:relative;right:auto;top:auto;width:auto;margin:16px 14px 18px;transform:none!important}
+  .vplay{right:24px;bottom:28px;width:40px;height:40px}
+  .mcard{display:block!important}
+  .mcard .vplay{right:10px;bottom:10px;width:34px;height:34px}
+  .fcard.wide .cap{order:-1;position:relative;top:auto;left:auto;right:auto;padding:22px 18px 4px}
+  .fcard.wide img{aspect-ratio:4/3;object-fit:cover;object-position:62% 50%}
+  .notes .cap.left{position:relative;width:auto;padding:28px 20px 8px}
+  .notes .cap.left h3{font-size:26px}
+  .notes img{object-position:100% 50%!important}
+  .lockup{gap:12px;padding:10px 16px} .lockup img{height:22px}
+  .depo-top{flex-direction:column;align-items:flex-start}
+  .cgrid{grid-template-columns:1fr 1fr}
+  .cgrid a,.cgrid a.w{grid-column:span 2}
+  .band{padding:56px 20px;border-radius:20px}
+  .faq{padding:72px 0}
+  .cta{padding:96px 0}
+  .frow{flex-direction:column;align-items:flex-start}
+  .sec-hrc .geo{display:none}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.marq{animation:none}.pdot circle,.proof,.proof::after,.proof img{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><img src="../assets/img/logos/checkreplay.svg" alt="Check Replay"></a>
+    <ul>
+      <li><a href="#hrc">HRC Storage</a></li>
+      <li><a href="#replayer">How it works</a></li>
+      <li><a href="#depoimentos">Testimonials</a></li>
+      <li><a href="#planos">Plans</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="act">
+      <a class="login" href="https://app.checkreplay.com">Log in</a>
+      <a class="btn btn-light" href="https://app.checkreplay.com">Sign up free</a>
+      <div class="lang" id="lang"><button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><img src="../assets/img/flags/en.svg" alt="" width="20" height="20"><span>EN</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lang-menu" role="menu"><li><a href="./" data-lang="en" hreflang="en"><img src="../assets/img/flags/en.svg" alt="" width="20" height="20">EN</a></li><li><a href="./" data-lang="ru" hreflang="en"><img src="../assets/img/flags/ru.svg" alt="" width="20" height="20">RU</a></li><li><a href="../" data-lang="pt" hreflang="pt-BR"><img src="../assets/img/flags/pt.svg" alt="" width="20" height="20">PT</a></li><li><a href="./" data-lang="es" hreflang="en"><img src="../assets/img/flags/es.svg" alt="" width="20" height="20">ES</a></li><li><a href="./" data-lang="fr" hreflang="en"><img src="../assets/img/flags/fr.svg" alt="" width="20" height="20">FR</a></li><li><a href="./" data-lang="de" hreflang="en"><img src="../assets/img/flags/de.svg" alt="" width="20" height="20">DE</a></li><li><a href="./" data-lang="ja" hreflang="en"><img src="../assets/img/flags/ja.svg" alt="" width="20" height="20">JA</a></li><li><a href="./" data-lang="zh" hreflang="en"><img src="../assets/img/flags/zh.svg" alt="" width="20" height="20">ZH</a></li></ul></div>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><i></i><i></i></button>
+    </div>
+  </div>
+  <div class="mmenu" id="mmenu">
+    <a href="#hrc">HRC Storage</a><a href="#replayer">How it works</a><a href="#depoimentos">Testimonials</a><a href="#planos">Plans</a><a href="#faq">FAQ</a>
+    <div class="mm-act"><a class="btn btn-dark" href="https://app.checkreplay.com">Log in</a><a class="btn btn-red" href="https://app.checkreplay.com">Sign up free</a></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video class="bgv" autoplay muted loop playsinline poster="../assets/img/video/C1-hero-poster.webp">
+    <source src="../assets/img/video/C1-hero.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+    <source src="../assets/img/video/C1-hero.webm" type="video/webm">
+    <source src="../assets/img/video/C1-hero.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <div class="hero-row">
+      <div>
+        <span class="pill pulse"><span class="pdot"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>New · HRC Storage</span>
+        <h1><span class="ln"><span class="grad">Optimize your study.</span></span><span class="ln"><span class="grad">Boost your </span><span class="grad-red">poker ROI.</span></span></h1>
+        <p class="sub">Review your hands and study every spot with your team, with the HRC result in the same link. Everything in one place, no time lost switching screens.</p>
+        <div class="ctas">
+          <a class="btn btn-red" href="https://app.checkreplay.com">Sign up free</a>
+          <a class="btn btn-ghost" href="#hrc">See HRC Storage</a>
+        </div>
+        <div class="proof">
+          <img src="../assets/img/people/kelvin-avatar.webp" alt="Kelvin Kerber">
+          <div><b>Kelvin Kerber studies on Check Replay</b><span>10 SCOOP titles · WSOP champion</span></div>
+        </div>
+      </div>
+      <div class="stage" id="stage">
+        <div class="win rp"><img src="../assets/img/hero-replayer.webp" alt="Check Replay replayer with the hand open" loading="eager"></div>
+        <div class="win hrc"><img src="../assets/img/hero-hrc.webp" alt="HRC result open inside the hand" loading="eager"></div>
+        <div class="hl share">
+          <div class="lab"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>SHARE HANDS</div>
+          <div class="sh-flow">
+            <div class="sh-bar">
+              <span class="sh-btn">Copy Hands</span>
+              <span class="sh-btn on"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>Share Hands<svg class="cur" width="16" height="18" viewBox="0 0 16 18"><path d="M1 1l13 7.5-5.6 1.3 3.2 6.2-2.3 1.1-3.1-6.2L1 14.5z" fill="#fff" stroke="#111" stroke-width="1"/></svg></span>
+              <span class="sh-btn">Hand Details</span>
+            </div>
+            <div class="sh-line"></div>
+            <div class="toast"><div class="row"><span class="ck"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Hand Link is in your clipboard.<span class="x">×</span></div><div class="bar"></div></div>
+          </div>
+          <p><b>1 click:</b> the hand and the HRC in the same link.</p>
+        </div>
+        <div class="hl bf" data-depth="1.5">
+          <div class="lab"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>BUBBLE FACTOR</div>
+          <div class="bfrow"><img src="../assets/img/bf-mini.webp" alt=""><div><small>HIJ vs CO</small><b>2.76</b><span>+23.4% Risk Premium</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="rooms">
+      <p>COMPATIBLE WITH THE MAJOR ROOMS</p>
+      <div class="slider"><ul class="track"><li><img src="../assets/img/logos/pokerstars.svg" alt="PokerStars" style="height:26px" loading="lazy"></li><li><img src="../assets/img/logos/gg.png" alt="GGPoker" style="height:32px" loading="lazy"></li><li><img src="../assets/img/logos/wpn.png" alt="WPN" style="height:42px" loading="lazy"></li><li><img src="../assets/img/logos/partypoker.svg" alt="partypoker" style="height:34px" loading="lazy"></li><li><img src="../assets/img/logos/ipoker.png" alt="iPoker" style="height:44px" loading="lazy"></li><li><img src="../assets/img/logos/888.png" alt="888poker" style="height:48px" loading="lazy"></li><li><img src="../assets/img/logos/winamax.png" alt="Winamax" style="height:52px" loading="lazy"></li><li><img src="../assets/img/logos/h2n.svg" alt="Hand2Note (Exports)" style="height:58px" loading="lazy"></li><li><img src="../assets/img/logos/coinpoker.png" alt="CoinPoker" style="height:36px" loading="lazy"></li><li><img src="../assets/img/logos/ignition.png" alt="Ignition Casino" style="height:42px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/pokerstars.svg" alt="" style="height:26px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/gg.png" alt="" style="height:32px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/wpn.png" alt="" style="height:42px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/partypoker.svg" alt="" style="height:34px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/ipoker.png" alt="" style="height:44px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/888.png" alt="" style="height:48px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/winamax.png" alt="" style="height:52px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/h2n.svg" alt="" style="height:58px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/coinpoker.png" alt="" style="height:36px" loading="lazy"></li><li aria-hidden="true"><img src="../assets/img/logos/ignition.png" alt="" style="height:42px" loading="lazy"></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESE -->
+<section class="tese">
+  <div class="glow-top"></div>
+  <div class="wrap reveal">
+    <h2><span class="grad">Volume means nothing if you</span><br><span class="grad-red">don’t review where you go wrong.</span></h2>
+    <p>Review your hands and discuss the spot with other players.</p>
+  </div>
+</section>
+
+<!-- ATALHOS -->
+<section class="shortcuts">
+  <div class="wrap sc-grid">
+    <a class="sc reveal" href="#replayer">
+      <div class="media"><img src="../assets/img/sc-replayer.webp" alt=""><video muted loop playsinline preload="none" src="../assets/img/video/sc-replayer.mp4"></video></div>
+      <h4>REPLAYER</h4><p>There’s a hand you can’t forget. Start with it.</p><span class="a" style="display:inline-block;margin:16px 4px 4px;font-size:13px;color:var(--red-soft)">See how it works ↓</span>
+    </a>
+    <a class="sc reveal" href="#hrc">
+      <div class="media"><img src="../assets/img/sc-hrc.webp" alt=""><video muted loop playsinline preload="none" src="../assets/img/video/sc-hrc.mp4"></video><span class="tag"><img src="../assets/img/logos/hrc-icon.svg" alt="">Integrated with HRC</span></div>
+      <h4>HRC STORAGE</h4><p>Share your hands with HRC data and study as a group.</p><span style="display:inline-block;margin:16px 4px 4px;font-size:13px;color:var(--red-soft)">See how it works ↓</span>
+    </a>
+    <a class="sc reveal" href="#bubble">
+      <div class="media"><img src="../assets/img/sc-bf.webp" alt=""><video muted loop playsinline preload="none" src="../assets/img/video/sc-bf.mp4"></video></div>
+      <h4>BUBBLE FACTOR</h4><p>That bubble fold still haunts you.</p><span style="display:inline-block;margin:16px 4px 4px;font-size:13px;color:var(--red-soft)">See how it works ↓</span>
+    </a>
+  </div>
+</section>
+
+<!-- REPLAYER -->
+<section class="sec feat" id="replayer">
+  <div class="lightline"></div><div class="glow-top"></div>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>Replayer</span>
+      <h2><span class="grad">Every hand, with the </span><span class="grad-red">full context</span></h2>
+      <p>Upload your hand history and every hand opens with the full context: hero cards, position, number of players and blind level.</p>
+    </div>
+    <div class="grid2">
+      <div class="fcard open reveal"><img src="../assets/img/rp-ferramentas.webp" alt="Replayer Tools panel" loading="lazy"><div class="cap"><h3>Jump straight to the hero’s action</h3><p>Hide results, convert to BB and get straight to the point of the hand.</p></div></div>
+      <div class="fcard reveal"><img src="../assets/img/rp-oponente.webp" alt="Opponent lookup on Sharkscope" loading="lazy"><div class="cap"><h3>Opponent history without leaving the Replay</h3><p>Look up the player’s nickname on Sharkscope in one click.</p></div></div>
+    </div>
+    <div class="fcard wide reveal"><img src="../assets/img/rp-compartilhar.webp" alt="Share multiple hands with one link" loading="lazy"><div class="cap"><h3>Share multiple hands with one link</h3></div></div>
+  </div>
+</section>
+
+<!-- HRC STORAGE -->
+<section class="sec feat sec-hrc" id="hrc">
+  <div class="glowr"></div><div class="geo"></div>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="lockup"><img src="../assets/img/logos/checkreplay.svg" alt="Check Replay"><span>×</span><img src="../assets/img/logos/hrc-banner.svg" alt="HoldemResources.net"></span>
+      <span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>HRC Storage</span>
+      <h2><span class="grad">The </span><span class="grad-red">HRC</span><span class="grad"> result inside the hand</span></h2>
+      <p>Run it in HRC, upload the .hrcz to the shared hand, and anyone who opens the link sees the solution without running it again. Up to 8 files per hand.</p>
+      <div class="chips"><span class="chip"><img src="../assets/img/logos/hrc-icon.svg" alt="">.hrcz files right in the hand</span><span class="chip"><i></i>10 GB included with Pro</span><span class="chip"><i></i>Up to 150 GB with the add-on</span></div>
+    </div>
+    <div class="fcard wide vcard mcard reveal" id="mcard">
+      <h3 class="sr">HRC and your notes inside the shared hand</h3>
+      <div class="mstage" aria-hidden="true"><div class="mscene" id="mscene">
+        <img class="m-app" src="../assets/img/motion/m-app.webp" alt="" loading="lazy">
+        <div class="mc m-lista"><img src="../assets/img/motion/m-lista.webp" alt="" loading="lazy"><i class="mring r-lista"></i><svg class="cur c-lista" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 8.2-6.3 1.5 3.6 6.6-2.6 1.4-3.6-6.6L5 18.6z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        <div class="mc m-hrc"><div class="hw"><img src="../assets/img/motion/m-hrc.webp" alt="" loading="lazy"></div><i class="mring r-hrc"></i><svg class="cur c-hrc" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 8.2-6.3 1.5 3.6 6.6-2.6 1.4-3.6-6.6L5 18.6z" fill="#fff" stroke="#111" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        <div class="mc m-notas"><img class="nv" src="../assets/img/motion/m-notas-vazia.webp" alt="" loading="lazy"><img class="nc" src="../assets/img/motion/m-notas-cheia.webp" data-en="../assets/img/motion/m-notas-cheia-en.webp" alt="" loading="lazy"></div>
+        <div class="mkbd"><span class="kbd">Ctrl</span>+<span class="kbd">V</span><span data-en="pastes the screenshot into the note">pastes the screenshot into the note</span></div>
+      </div></div>
+      <button class="vplay" id="mbtn" aria-label="Pause animation"><svg class="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+    </div>
+    <div class="grid2">
+      <div class="fcard open reveal"><img src="../assets/img/hrc-grupo.webp" alt="HRC file in the shared hand" loading="lazy"><div class="cap"><h3>Study the same spot as a group</h3><p>Split the hands, everyone runs theirs in HRC, and you review them together in the same link.</p></div></div>
+      <div class="fcard reveal"><img src="../assets/img/hrc-exportar.webp" alt="Export the HRCz file" loading="lazy"><div class="cap"><h3>Export the file and run variations</h3><p>Download the hand’s .hrcz and open it in your HRC to test other lines.</p></div></div>
+    </div>
+      </div>
+</section>
+
+<!-- BUBBLE FACTOR -->
+<section class="sec feat sec-bf" id="bubble">
+  <div class="gridbg"></div>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>Bubble Factor</span>
+      <h2><span class="grad">Players left and </span><span class="grad-red">Bubble Factor</span><span class="grad"> solved instantly</span></h2>
+      <p>Calculate Risk Premium in seconds and see the ICM pressure at every stage of the tournament.</p>
+    </div>
+    <div class="grid2">
+      <div class="fcard open reveal"><img src="../assets/img/bf-matriz.webp" alt="Bubble Factor matrix" loading="lazy"><div class="cap"><h3>Whatever the tournament structure</h3><p>ICM pressure shows up right away, from the bubble to the final table.</p></div></div>
+      <div class="fcard reveal"><img src="../assets/img/bf-stacks.webp" alt="Average stack of the other tables" loading="lazy"><div class="cap"><h3>Other tables’ stacks, automatically</h3><p>The other tables’ average stack goes into the calculation without you typing anything.</p></div></div>
+    </div>
+    <div class="fcard wide reveal"><img src="../assets/img/bf-mesa.webp" alt="Who to attack and who to avoid on the bubble" loading="lazy"><div class="cap"><h3>Who to attack, who to avoid, when survival is worth more</h3></div></div>
+  </div>
+</section>
+
+<!-- PROVA -->
+<section class="prova">
+  <div class="wrap reveal">
+    <div class="band">
+      <svg class="blines" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="bl1" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="300" y2="330"><stop offset="0" stop-color="#FFB3B3" stop-opacity="0"/><stop offset=".55" stop-color="#FFB3B3" stop-opacity=".45"/><stop offset="1" stop-color="#FFD6D6" stop-opacity=".8"/></linearGradient><linearGradient id="bl2" gradientUnits="userSpaceOnUse" x1="330" y1="420" x2="140" y2="90"><stop offset="0" stop-color="#FFB3B3" stop-opacity="0"/><stop offset=".55" stop-color="#FFB3B3" stop-opacity=".45"/><stop offset="1" stop-color="#FFD6D6" stop-opacity=".8"/></linearGradient><linearGradient id="bl3" gradientUnits="userSpaceOnUse" x1="1180" y1="420" x2="880" y2="80"><stop offset="0" stop-color="#FFB3B3" stop-opacity="0"/><stop offset=".55" stop-color="#FFB3B3" stop-opacity=".45"/><stop offset="1" stop-color="#FFD6D6" stop-opacity=".8"/></linearGradient><linearGradient id="bl4" gradientUnits="userSpaceOnUse" x1="860" y1="0" x2="1100" y2="330"><stop offset="0" stop-color="#FFB3B3" stop-opacity="0"/><stop offset=".55" stop-color="#FFB3B3" stop-opacity=".45"/><stop offset="1" stop-color="#FFD6D6" stop-opacity=".8"/></linearGradient></defs><g class="g1"><rect class="fr" x="70" y="70" width="230" height="160" stroke="url(#bl1)"/><rect class="fr" x="160" y="150" width="200" height="190" stroke="url(#bl2)"/><path class="fr" d="M300 -10 V70" stroke="url(#bl1)"/></g><g class="g2"><rect class="fr" x="880" y="90" width="210" height="200" stroke="url(#bl4)"/><rect class="fr" x="960" y="200" width="240" height="160" stroke="url(#bl3)"/><path class="fr" d="M880 290 V440" stroke="url(#bl4)"/></g></svg>
+      <div class="avatars"><img src="../assets/img/people/avatar-1.webp" alt=""><img src="../assets/img/people/avatar-2.webp" alt=""><img src="../assets/img/people/cr-icon.png" alt="Check Replay"><img src="../assets/img/people/avatar-3.webp" alt=""><img src="../assets/img/people/avatar-4.webp" alt=""></div>
+      <h2>+<span class="num" data-to="3000">3000</span> players already study<br>on Check Replay</h2>
+      <a class="btn btn-dark" href="https://app.checkreplay.com">Sign up free</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depo" id="depoimentos">
+  <div class="wrap">
+    <div class="depo-top reveal"><div><span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>Testimonials</span><h2><span class="grad">Poker coaches use </span><span class="grad-red">Check Replay</span></h2></div>
+      <div class="darrows"><button class="darr" id="dprev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button class="darr" id="dnext" aria-label="Next testimonial"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+    <div class="dtrack reveal" id="dtrack">
+      <article class="dcard"><div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div><p>“What sets Check Replay apart from other software I’ve used is the speed of support to improve the app and listen to feedback, plus the user-friendly interface.”</p><div class="who"><img src="../assets/img/people/allan-sheik.webp" alt="" loading="lazy"><div><b>Allan Sheik</b><span>Head Coach · Samba Poker Team</span></div></div></article>
+      <article class="dcard"><div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div><p>“Check Replay is undoubtedly the best replayer I’ve ever used. The smoothness, the wealth of information, and the filters optimize any review, whether in warmups or CTB. On top of all that, the experience is even better with the LED lighting on the table!”</p><div class="who"><img src="../assets/img/people/anao19.webp" alt="" loading="lazy"><div><b>Anao19_</b><span>Streamer · CTB</span></div></div></article>
+      <article class="dcard"><div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div><p>“Check Replay has an intuitive interface that’s easy to understand, very useful for sending hand doubts or doing a poker tournament review. The best part is it lights up the table, simulating a final table!”</p><div class="who"><img src="../assets/img/people/baakemi.webp" alt="" loading="lazy"><div><b>Baakemi</b><span>Streamer · Sunday Million Winner</span></div></div></article>
+      <article class="dcard"><div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div><p>“I’ve been using Check Replay since the beginning. For me, it’s the best replayer I’ve ever used: practical, modern, and fast! Of course, we only use Check Replay for pro-level generation.”</p><div class="who"><img src="../assets/img/people/bigfat.webp" alt="" loading="lazy"><div><b>BigFat</b><span>Streamer · Geração Pró</span></div></div></article>
+      <article class="dcard"><div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div><p>“Discovering Check Replay was a game changer—it’s easy to use, intuitive, and has a great visual for teaching tournament reviews. It made my life as a coach so much easier!”</p><div class="who"><img src="../assets/img/people/carlos-rox.webp" alt="" loading="lazy"><div><b>Carlos Rox</b><span>Head Coach · Warriors Poker Team</span></div></div></article>
+      <article class="dcard"><div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div><p>“I want to thank you for the incredible software! I’ve been using it a lot in my lessons for reviews and HH analysis. The functionality, ease of access, and usability are impressive. No doubt, it’s far superior to the options available in the market. I recommend it to all my students!”</p><div class="who"><img src="../assets/img/people/schiavo.webp" alt="" loading="lazy"><div><b>Schiavo</b><span>Instructor · RegLife</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="sec" id="planos">
+  <div class="lightline"></div><div class="glow-top"></div>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>Plans</span>
+      <h2><span class="grad">Start free. </span><span class="grad-red">Upgrade whenever you want.</span></h2>
+      <div class="toggle" id="toggle"><button class="on" data-p="m">Monthly</button><button data-p="a">Annual · -35%</button></div>
+    </div>
+    <div class="pgrid">
+      <div class="pcard reveal"><h3>Free</h3><div class="price"><b class="grad">$0</b><span>/forever</span></div><p class="lead">To get to know the replayer.</p><ul><li>Up to 5 hands per session</li><li>3 sessions per day</li><li>7 shared hands per week</li></ul><a class="btn btn-light" href="https://app.checkreplay.com">Sign up free</a></div>
+      <div class="pcard hi reveal"><h3>Pro</h3><div class="price"><b id="pro">$9</b><span id="per">/month</span></div><p class="lead" id="prolead">Or $5.75/month on the annual plan.</p><ul><li>Full replayer: cash, MTT and PLO</li><li>Bubble Factor and ICM</li><li>10 GB of HRC Storage included</li></ul><a class="btn btn-dark" href="https://app.checkreplay.com">Subscribe to Pro</a></div>
+      <div class="pcard reveal"><h3>HRC Storage</h3><div class="price"><b class="grad">+$4.5</b><span>/add-on</span></div><p class="lead">Added to your subscription.</p><ul><li>Upload .hrcz files to shared hands</li><li>Up to 8 files per hand</li><li>Up to 150 GB of storage</li></ul><a class="btn btn-red" href="https://app.checkreplay.com">Add HRC Storage</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- KELVIN -->
+<section class="kelvin">
+  <div class="wrap kgrid">
+    <div class="kside"><div class="kglow"></div><div class="kphoto reveal"><img src="../assets/img/people/kelvin-bracelete.webp" alt="Kelvin Kerber with the WSOP bracelet" loading="lazy"></div></div>
+    <div class="ktext reveal">
+      <span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>Official partner</span>
+      <h2><span class="grad">Kelvin Kerber studies<br>on </span><span class="grad-red">Check Replay</span></h2>
+      <p>One of the biggest names in Brazilian poker uses Check Replay to analyze every detail of every hand. Samba Poker Team, co-founded by Kelvin, uses the tool in its classes and team reviews.</p>
+      <div class="chips"><span class="chip">10 SCOOP titles</span><span class="chip">WSOP champion</span><span class="chip">Head Coach · Samba Poker Team</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEUDO -->
+<section class="sec" id="conteudo">
+  <div class="wrap">
+    <div class="head reveal"><span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>Content</span><h2><span class="grad">Keep studying </span><span class="grad-red">beyond the replay</span></h2></div>
+    <div class="cgrid">
+      <a class="reveal" href="https://blog.checkreplay.com" target="_blank" rel="noopener"><img src="../assets/img/ct-blog.webp" alt="Check Replay blog" loading="lazy"></a>
+      <a class="reveal" href="https://www.youtube.com/@CheckReplay" target="_blank" rel="noopener"><img src="../assets/img/ct-youtube.webp" alt="Check Replay on YouTube" loading="lazy"></a>
+      <a class="reveal" href="https://www.instagram.com/checkreplay/" target="_blank" rel="noopener"><img src="../assets/img/ct-instagram.webp" alt="Check Replay on Instagram" loading="lazy"></a>
+      <a class="w reveal" href="https://discord.gg/ZJYKa2faBG" target="_blank" rel="noopener"><img src="../assets/img/ct-discord.webp" alt="Discord community" loading="lazy"></a>
+      <a class="w reveal" href="#" aria-label="Kerber TV on Twitch"><img src="../assets/img/ct-twitch.webp" alt="Kerber TV on Twitch" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap fgrid">
+    <div class="reveal"><span class="pill pulse sm"><span class="pdot sm"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="r1" cx="20" cy="20" r="6"/><circle class="r2" cx="20" cy="20" r="6"/><circle class="r3" cx="20" cy="20" r="6"/><circle class="core" cx="20" cy="20" r="3.2"/></svg></span>FAQ</span><h2 class="grad">Frequently asked questions</h2><p>The most common questions about HRC Storage and Check Replay.</p><a class="btn btn-red" href="https://app.checkreplay.com">Sign up free</a></div>
+    <div class="reveal">
+      <details open><summary>What is HRC Storage?</summary><p>It’s the space to keep HRC .hrcz files inside the hands you share on Check Replay. Anyone who opens the link sees the HRC result together with the hand.</p></details>
+      <details><summary>Do I need HRC to use it?</summary><p>To create the .hrcz file, yes: the calculation runs in your HRC. To see the result in the shared link, no.</p></details>
+      <details><summary>Does whoever opens the link need to run the hand again?</summary><p>No. The result is already saved inside the hand, ready to study.</p></details>
+      <details><summary>How many files can I upload per hand?</summary><p>Up to 8 .hrcz files per hand.</p></details>
+      <details><summary>Does it work for MTT and cash games?</summary><p>The replayer works for cash, MTT and PLO. HRC Storage keeps the .hrcz files you create in HRC.</p></details>
+      <details><summary>Is Check Replay a solver?</summary><p>No. Check Replay is a replayer for reviewing and sharing hands. The calculations come from the HRC you run and upload to the hand.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="marq">STUDY BETTER · STUDY BETTER · STUDY BETTER · STUDY BETTER · STUDY BETTER · STUDY BETTER ·</div>
+  <div class="wrap reveal">
+    <h2><span class="grad">Study the next hand<br>with your team and friends.</span></h2>
+    <a class="btn btn-red" href="https://app.checkreplay.com">Sign up free</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <a class="logo" href="#"><img src="../assets/img/logos/checkreplay.svg" alt="Check Replay"></a>
+      <div class="links"><a href="https://blog.checkreplay.com">Blog</a><a href="https://www.instagram.com/checkreplay/">Instagram</a><a href="https://www.youtube.com/@CheckReplay">YouTube</a><a href="https://discord.gg/ZJYKa2faBG">Discord</a></div>
+      <a href="mailto:support@checkreplay.com">support@checkreplay.com</a>
+    </div>
+    <div class="frow" style="margin-top:20px">
+      <div class="links"><span class="dim">Partners:</span><a href="https://lobbyze.com">Lobbyze</a><a href="https://slotpokerpro.com">Slot Poker Pro</a></div>
+      <div class="links"><a href="https://www.checkreplay.com/privacy-policy">Privacy policy</a><a href="#">Cookies</a><a href="#">Legal</a></div>
+    </div>
+    <div class="sep"></div>
+    <div class="frow"><small>Check Replay is poker study and analysis software. It does not offer real-money gaming or cash prizes.</small><small>© 2026 Check Replay. All rights reserved.</small></div>
+  </div>
+</footer>
+
+<script>
+// idioma: página PT na raiz, EN em /en/ (demais idiomas usam a versão EN até serem traduzidos)
+(()=>{const l=document.documentElement.lang.toLowerCase().startsWith('pt')?'pt':'en';const w=document.getElementById('lang');if(!w)return;
+const b=w.querySelector('.lang-btn');w.querySelectorAll('.lang-menu a').forEach(a=>{if(a.dataset.lang===l)a.parentElement.classList.add('cur')});
+b.addEventListener('click',e=>{e.stopPropagation();const o=w.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+document.addEventListener('click',()=>{w.classList.remove('open');b.setAttribute('aria-expanded','false')});})();
+// nav: stronger background once scrolled
+const nv=document.querySelector('nav');const onS=()=>nv.classList.toggle('scrolled',scrollY>20);addEventListener('scroll',onS,{passive:true});onS();
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// shortcut videos play on hover
+document.querySelectorAll('.sc').forEach(c=>{const v=c.querySelector('video');if(!v)return;c.addEventListener('mouseenter',()=>{v.preload='auto';v.play().catch(()=>{})});c.addEventListener('mouseleave',()=>{v.pause()})});
+// pricing toggle
+const t=document.getElementById('toggle');t.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;t.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const a=b.dataset.p==='a';document.getElementById('pro').textContent=a?'$5.75':'$9';document.getElementById('per').textContent=a?'/month, billed annually':'/month';document.getElementById('prolead').textContent=a?'Billed annually.':'Or $5.75/month on the annual plan.'});
+// hero stage: pointer tilt + parallax (swap is pure CSS :hover)
+(function(){
+  const st=document.getElementById('stage'); if(innerWidth<=768) return;
+  const hls=st.querySelectorAll('.hl');
+  st.style.transition='transform .8s cubic-bezier(.22,.61,.36,1)';
+  st.addEventListener('mousemove',e=>{const r=st.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;st.style.transform=`rotateY(${x*9}deg) rotateX(${-y*7}deg)`});
+  st.addEventListener('mouseleave',()=>{st.style.transform=''});
+})();
+// hero bg video: skip on save-data
+if(navigator.connection&&navigator.connection.saveData){const v=document.querySelector('.bgv');v&&v.remove()}
+
+// depoimentos carousel
+(()=>{const t=document.getElementById('dtrack');if(!t)return;const p=document.getElementById('dprev'),n=document.getElementById('dnext');
+const step=()=>{const c=t.querySelector('.dcard');return c.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||24)};
+const upd=()=>{p.disabled=t.scrollLeft<4;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4};
+let idx=0;const go=d=>{const st=step(),max=Math.round((t.scrollWidth-t.clientWidth)/st);idx=Math.max(0,Math.min(max,(Math.abs(t.scrollLeft-idx*st)>st/2?Math.round(t.scrollLeft/st):idx)+d));t.scrollTo({left:idx*st})};
+p.onclick=()=>go(-1);n.onclick=()=>go(1);
+t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();})();
+
+// contador +3000
+(()=>{const el=document.querySelector('.band .num');if(!el)return;const to=+el.dataset.to;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;el.textContent='0';
+const io=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;io.disconnect();const t0=performance.now(),d=1800;
+const f=t=>{const k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)},{threshold:.5});io.observe(el);})();
+
+// cards: tilt 3D seguindo o mouse (estilo GTO)
+if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+document.querySelectorAll('.fcard:not(.mcard)').forEach(c=>{const w=c.classList.contains('wide');
+c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+c.style.transform=`perspective(1400px) rotateX(${(-y*(w?4:7)).toFixed(2)}deg) rotateY(${(x*(w?4:8)).toFixed(2)}deg) translateZ(0)`});
+c.addEventListener('pointerleave',()=>{c.style.transform=''})})}
+
+
+
+// motion banner HRC (timeline de 13s, WAAPI) — desktop horizontal / mobile vertical, PT ou EN
+(()=>{const card=document.getElementById('mcard');if(!card)return;const sc=document.getElementById('mscene'),btn=document.getElementById('mbtn');
+const EN=!(document.documentElement.lang||'pt').toLowerCase().startsWith('pt');
+if(EN)sc.querySelectorAll('[data-en]').forEach(el=>{if(el.tagName==='IMG')el.src=el.dataset.en;else el.textContent=el.dataset.en});
+const MQ=matchMedia('(max-width:768px)');
+const fit=()=>card.style.setProperty('--k',card.clientWidth/(MQ.matches?420:1214));fit();new ResizeObserver(fit).observe(card);
+const D=13,E='cubic-bezier(.22,.61,.36,1)',q=s=>sc.querySelector(s);let A=[];
+const tl=(el,keys)=>{const kf=keys.map(([t,p])=>Object.assign({offset:t/D,easing:E},p));if(kf[0].offset>0)kf.unshift(Object.assign({},kf[0],{offset:0}));if(kf[kf.length-1].offset<1)kf.push(Object.assign({},kf[kf.length-1],{offset:1}));A.push(el.animate(kf,{duration:D*1000,iterations:Infinity}))};
+const SH='blur(0px) brightness(1)',BL='blur(7px) brightness(.36)';
+const P={d:{r1:'rotateY(16deg) rotateX(5deg)',r2:'rotateY(-11deg) rotateX(4deg)',r3:'rotateY(-14deg) rotateX(4deg)',
+  lc:[[330,250],[320,236],[190,50],[214,74]],hc:[[520,300],[500,290],[190,252],[358,438],[380,460]],back:'translate3d(-300px,10px,-260px) rotateY(10deg) rotateX(3deg)',back2:'translate3d(-320px,10px,-320px) rotateY(10deg) rotateX(3deg)',kb:''},
+ m:{r1:'rotateY(8deg) rotateX(6deg)',r2:'rotateY(7deg) rotateX(5deg)',r3:'rotateY(-7deg) rotateX(5deg)',
+  lc:[[240,210],[232,198],[137,36],[156,54]],hc:[[270,300],[260,290],[130,110],[37,313],[54,330]],back:'translate3d(0,-150px,-320px) rotateX(18deg)',back2:'translate3d(0,-170px,-380px) rotateX(18deg)',kb:'translateX(-50%) '}};
+const build=()=>{A.forEach(a=>a.cancel());A=[];const p=MQ.matches?P.m:P.d,kb=p.kb;
+tl(q('.m-app'),[[0,{transform:'scale(1) translateY(0)',filter:SH}],[2.2,{transform:'scale(1.03) translateY(-6px)',filter:SH}],[2.9,{transform:'scale(1.07) translateY(-6px)',filter:BL}],[11.9,{transform:'scale(1.07) translateY(-6px)',filter:BL}],[12.8,{transform:'scale(1) translateY(0)',filter:SH}]]);
+tl(q('.m-lista'),[[2.4,{opacity:0,transform:`translate3d(0,50px,-160px) ${p.r1}`,filter:'blur(8px)'}],[3.1,{opacity:1,transform:`translate3d(0,0,40px) ${p.r1}`,filter:'blur(0px)'}],[5.1,{opacity:1,transform:`translate3d(-10px,-4px,60px) ${p.r1}`,filter:'blur(0px)'}],[5.8,{opacity:0,transform:`translate3d(-120px,0,-220px) ${p.r1}`,filter:'blur(6px)'}]]);
+const L=p.lc,T=(c,s)=>`translate(${c[0]}px,${c[1]}px) scale(${s})`;
+tl(q('.c-lista'),[[3.1,{opacity:0,transform:T(L[0],1)}],[3.3,{opacity:1,transform:T(L[1],1)}],[4.2,{opacity:1,transform:T(L[2],1)}],[4.3,{opacity:1,transform:T(L[2],.82)}],[4.45,{opacity:1,transform:T(L[2],1)}],[5.0,{opacity:1,transform:T(L[3],1)}],[5.3,{opacity:0,transform:T(L[3],1)}]]);
+tl(q('.r-lista'),[[4.25,{opacity:0,transform:'scale(.6)'}],[4.45,{opacity:1,transform:'scale(1.15)'}],[4.7,{opacity:1,transform:'scale(1)'}],[5.3,{opacity:0,transform:'scale(1)'}]]);
+tl(q('.m-hrc'),[[5.3,{opacity:0,transform:`translate3d(120px,30px,-200px) ${p.r2}`,filter:'blur(8px) brightness(1)'}],[6.1,{opacity:1,transform:`translate3d(0,0,0) ${p.r2}`,filter:'blur(0px) brightness(1)'}],[8.2,{opacity:1,transform:`translate3d(-10px,-4px,20px) ${p.r2}`,filter:'blur(0px) brightness(1)'}],[9.0,{opacity:.55,transform:p.back,filter:'blur(3px) brightness(.6)'}],[11.8,{opacity:.55,transform:p.back,filter:'blur(3px) brightness(.6)'}],[12.5,{opacity:0,transform:p.back2,filter:'blur(8px) brightness(.6)'}]]);
+const H=p.hc;
+tl(q('.c-hrc'),[[6.2,{opacity:0,transform:T(H[0],1)}],[6.4,{opacity:1,transform:T(H[1],1)}],[7.1,{opacity:1,transform:T(H[2],1)}],[7.7,{opacity:1,transform:T(H[3],1)}],[7.8,{opacity:1,transform:T(H[3],.82)}],[7.95,{opacity:1,transform:T(H[3],1)}],[8.4,{opacity:0,transform:T(H[4],1)}]]);
+tl(q('.r-hrc'),[[7.75,{opacity:0,transform:'scale(.6)'}],[7.95,{opacity:1,transform:'scale(1.2)'}],[8.2,{opacity:1,transform:'scale(1)'}],[8.6,{opacity:0,transform:'scale(1)'}]]);
+tl(q('.m-notas'),[[8.5,{opacity:0,transform:`translate3d(120px,30px,-200px) ${p.r3}`,filter:'blur(8px)'}],[9.2,{opacity:1,transform:`translate3d(0,0,30px) ${p.r3}`,filter:'blur(0px)'}],[11.8,{opacity:1,transform:`translate3d(-8px,-4px,50px) ${p.r3}`,filter:'blur(0px)'}],[12.5,{opacity:0,transform:`translate3d(60px,0,-200px) ${p.r3}`,filter:'blur(8px)'}]]);
+tl(q('.m-notas .nc'),[[10.2,{opacity:0,filter:'blur(4px)'}],[10.42,{opacity:1,filter:'blur(0px)'}],[12.5,{opacity:1,filter:'blur(0px)'}],[12.6,{opacity:0,filter:'blur(0px)'}]]);
+tl(q('.m-notas .nv'),[[10.2,{opacity:1}],[10.36,{opacity:0}],[12.6,{opacity:0}],[12.7,{opacity:1}]]);
+tl(q('.mkbd'),[[9.4,{opacity:0,transform:kb+'translateY(10px) scale(.92)'}],[9.8,{opacity:1,transform:kb+'translateY(0) scale(1)'}],[10.7,{opacity:1,transform:kb+'translateY(0) scale(1)'}],[11.1,{opacity:0,transform:kb+'translateY(-6px) scale(.98)'}]]);
+A.forEach(a=>a.pause());};
+build();
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;let user=false,on=false;
+const set=v=>{on=v;btn.classList.toggle('paused',!v);btn.setAttribute('aria-label',v?(EN?'Pause animation':'Pausar animação'):(EN?'Play animation':'Reproduzir animação'))};
+const play=()=>{A.forEach(a=>a.play());set(true)},stop=()=>{A.forEach(a=>a.pause());set(false)};
+const still=()=>{A.forEach(a=>{a.currentTime=10800})};
+if(rm)still();set(false);
+MQ.addEventListener('change',()=>{const was=on;build();fit();if(rm)still();if(was)play()});
+new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!user&&!rm)play();else if(!v)stop()},{threshold:.3}).observe(card);
+btn.addEventListener('click',()=>{user=true;on?stop():play()});})();
+
+// menu mobile
+(()=>{const EN=!document.documentElement.lang.toLowerCase().startsWith('pt');const n=document.querySelector('nav'),b=document.getElementById('burger');if(!b)return;
+const set=o=>{n.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?(EN?'Close menu':'Fechar menu'):(EN?'Open menu':'Abrir menu'))};
+b.addEventListener('click',e=>{e.stopPropagation();set(!n.classList.contains('menu-open'))});
+document.querySelectorAll('#mmenu a').forEach(a=>a.addEventListener('click',()=>set(false)));})();
+</script>
+</body>
+</html>
